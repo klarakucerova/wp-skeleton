@@ -15,7 +15,6 @@
     @include rem(height, 30px);
     @include rem(padding, 10px);
     @include rem(width, 30px);
-    position: absolute;
     z-index: 20;
 
     &:before,

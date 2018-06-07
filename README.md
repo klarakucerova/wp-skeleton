@@ -27,3 +27,14 @@ If you want to add new sass files/components etc. please add them in the followi
 Every new sass file (e.g. `_name-of-your-file.scss`) needs to be called inside our `wp-content/themes/wp-skeleton/src/scss/_core.scss` to be included in sass compilation.
 
 All theme variable are inside `wp-content/themes/wp-skeleton/src/scss/_config.scss` file.
+
+
+## Modal markup:
+```<div class="js-modal-trigger">Modal trigger</div>
+<div class="modal">
+    <div class="modal-overlay js-modal-overlay"></div>
+    <div class="modal-canvas">
+            modal canvas content
+        <div class="icon-close js-modal-close"></div>
+    </div>
+</div>```

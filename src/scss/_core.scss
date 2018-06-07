@@ -12,9 +12,6 @@
 @import 'utils/mixins/accessible-hide';
 @import 'utils/mixins/button';
 
-// Animations
-// ------------------------------------------------
-
 // Reset
 // ------------------------------------------------
 @import '../components/inuit-normalize/generic.normalize';
@@ -27,6 +24,8 @@
 // Layouts
 // ------------------------------------------------
 @import 'layouts/layout';
+@import 'layouts/header';
+@import 'layouts/footer';
 
 // Pages
 // ------------------------------------------------
@@ -34,3 +33,9 @@
 // Components
 // ------------------------------------------------
 @import 'components/buttons';
+@import 'components/icons';
+@import 'components/modal';
+
+// Global
+// ------------------------------------------------
+@import 'global/utility-classes';

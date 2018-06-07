@@ -1,4 +1,210 @@
+//
+// This partial is for Base element styling only.
+// If it is not an element selector or pseudo class of a base element
+// then it does not belong in this file.
+//
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
 body {
-    background-color: yellow;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+// HTML5 responsive video //
+video {
+    height: auto;
+    width: 100%;
+}
+
+// Basic responsive imagery //
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+// Interactions should have pointer //
+label,
+a,
+button,
+select,
+input[type="submit"] {
+    cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    margin: $heading-spacing-unit;
+}
+
+h1 {
+    font-size: $heading-one;
+}
+
+h2 {
+    font-size: $heading-two;
+}
+
+h3 {
+    font-size: $heading-three;
+}
+
+h4 {
+    font-size: $heading-four;
+}
+
+h5 {
+    font-size: $heading-five;
+}
+
+h6 {
+    font-size: $heading-six;
+}
+
+a {
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+
+    &:hover,
+    &:active {
+        outline: 0;
+    }
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="submit"],
+textarea {
+    -webkit-appearance: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+select {
+    max-width: 100%;
+}
+
+iframe,
+object,
+embed {
+    max-width: 100%;
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+
+    &::-moz-focus-inner {
+        border: 0;
+    }
+
+    &:disabled {
+        opacity: .5;
+    }
+}
+
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    @include rem(margin, $vertical-spacing-unit 0);
+
+    &:empty {
+        margin: 0;
+    }
+}
+
+blockquote,
+q {
+    quotes: '\201C""\201D""\2018""\2019';
+
+    &:before {
+        content: open-quote;
+    }
+
+    &:after {
+        content: close-quote;
+    }
+
+    p {
+        display: inline;
+    }
+}
+
+hr {
+    border: 0;
+    display: block;
+    height: 1px;
+    width: 100%;
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
 }

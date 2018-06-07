@@ -1,8 +1,8 @@
 /*
 Theme Name: WP Skeleton Theme
-Theme URI: https://northuxdesign.com
-Author: North UX Design
-Author URI: https://northuxdesign.com
+Theme URI: https://pixelsandbeyond.io
+Author: Klara Kucerova
+Author URI: https://pixelsandbeyond.io
 Description: WP Skeleton Theme
 Version: 1.0.0
 License: GNU General Public License v2 or later
@@ -416,14 +416,216 @@ textarea {
   /* 2 */
 }
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
 body {
-  background-color: yellow;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+video {
+  height: auto;
+  width: 100%;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+label,
+a,
+button,
+select,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  margin: 0.5em 0;
+}
+
+h1 {
+  font-size: 90px;
+}
+
+h2 {
+  font-size: 72px;
+}
+
+h3 {
+  font-size: 60px;
+}
+
+h4 {
+  font-size: 48px;
+}
+
+h5 {
+  font-size: 36px;
+}
+
+h6 {
+  font-size: 24px;
+}
+
+a {
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+}
+
+a:hover, a:active {
+  outline: 0;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+fieldset ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="submit"],
+textarea {
+  -webkit-appearance: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+select {
+  max-width: 100%;
+}
+
+iframe,
+object,
+embed {
+  max-width: 100%;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
+button:disabled {
+  opacity: .5;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 1.25rem 0;
+}
+
+p:empty {
+  margin: 0;
+}
+
+blockquote,
+q {
+  quotes: '\201C""\201D""\2018""\2019';
+}
+
+blockquote:before,
+q:before {
+  content: open-quote;
+}
+
+blockquote:after,
+q:after {
+  content: close-quote;
+}
+
+blockquote p,
+q p {
+  display: inline;
+}
+
+hr {
+  border: 0;
+  display: block;
+  height: 1px;
+  width: 100%;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
 }
 
 .button {
   padding: 0.3125rem 1.25rem;
   font-size: 16px;
-  background-color: pink;
+  background-color: #000;
   border: 1px solid #fff;
   color: #fff;
   display: block;
@@ -436,18 +638,115 @@ body {
 
 .button:hover {
   background-color: transparent;
-  border-color: pink;
-  color: pink;
+  border-color: #000;
+  color: #000;
   text-decoration: none;
 }
 
 .button--secondary {
   background-color: transparent;
-  border-color: pink;
-  color: pink;
+  border-color: #000;
+  color: #000;
 }
 
 .button--secondary:hover {
-  background-color: pink;
+  background-color: #000;
   color: #fff;
+}
+
+[class^="icon-svg-"],
+[class*="icon-svg-"] {
+  height: 1em;
+  transition: all .4s ease;
+  width: 1em;
+}
+
+[class^="icon-svg-"]:hover,
+[class*="icon-svg-"]:hover {
+  pointer-events: all;
+}
+
+.icon-close {
+  height: 1.875rem;
+  padding: 0.625rem;
+  width: 1.875rem;
+  z-index: 20;
+}
+
+.icon-close:before, .icon-close:after {
+  height: 0.125rem;
+  width: 1.875rem;
+  background: #000;
+  content: '';
+  left: 0;
+  position: absolute;
+  top: 50%;
+}
+
+.icon-close:before {
+  transform: rotate3d(0, 0, 1, 45deg);
+}
+
+.icon-close:after {
+  transform: rotate3d(0, 0, 1, -45deg);
+}
+
+.modal-overlay {
+  background-color: transparent;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: background-color .4s ease;
+  z-index: -10;
+}
+
+.modal-canvas {
+  max-width: 37.5rem;
+  padding: 1.875rem;
+  background-color: #fff;
+  overflow: auto;
+  position: absolute;
+  top: -100%;
+  transition: top .3s ease;
+  transform: translateY(-50%);
+  width: 100%;
+  z-index: 10;
+}
+
+.modal {
+  -ms-flex-align: center;
+  align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.modal .icon-close {
+  right: 0.625rem;
+  top: 0.625rem;
+  position: absolute;
+}
+
+.modal.is-zoomed .modal-overlay {
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+}
+
+.modal.is-zoomed .modal-canvas {
+  top: 50%;
+}
+
+.u-accessible-hide {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
