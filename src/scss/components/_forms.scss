@@ -1,0 +1,134 @@
+
+// Gravity forms
+.gform_wrapper {
+    @include rem(margin, 20px 0);
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    br {
+        display: none;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .validation_error,
+    .validation_message {
+        color: $red;
+    }
+}
+
+.ginput_container,
+.gform_fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ginput_container {
+    align-items: center;
+
+    span {
+        width: 100%;
+    }
+}
+
+.gform_fields {
+    align-items: flex-start;
+}
+
+.gfield {
+    width: 100%;
+
+    .textarea,
+    .medium,
+    .large {
+        width: 100%;
+    }
+}
+
+.ginput_full,
+.ginput_left,
+.ginput_right {
+    @include rem(margin-bottom, 10px);
+    width: 100%;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.ginput_left,
+.ginput_right {
+    @include breakpoint('medium') {
+        max-width: calc(100% / 2);
+    }
+}
+
+.ginput_left {
+    @include breakpoint('medium') {
+        @include rem(padding-right, 5px);
+    }
+}
+
+.ginput_right {
+    @include breakpoint('medium') {
+        @include rem(padding-left, 5px);
+    }
+}
+
+.field_description_above {
+    .gfield_description {
+        @include rem(margin-bottom, 5px);
+    }
+}
+
+.field_description_below {
+    .gfield_description {
+        @include rem(margin-top, 5px);
+    }
+}
+
+.gfield,
+.gform_footer {
+    @include rem(margin, 10px 0);
+}
+
+.gform_footer {
+    align-self: flex-end;
+    width: calc(100% / 2);
+}
+
+.gform_fields,
+.gfield_checkbox,
+.gfield_radio {
+    list-style: none;
+    padding: 0;
+}
+
+.gfield_checkbox,
+.gfield_radio {
+    li {
+        @include rem(margin-bottom, 10px);
+        display: flex;
+        align-items: center;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    input {
+        @include rem(margin-right, 10px);
+    }
+}
+
+.gform_hidden {
+    display: none;
+    max-height: 1px;
+    overflow: hidden;
+}

@@ -1,0 +1,15 @@
+
+.button {
+    @include button();
+}
+
+.button--secondary {
+    background-color: transparent;
+    border-color: $color-primary;
+    color: $color-primary;
+
+    &:hover {
+        background-color: $color-primary;
+        color: $white;
+    }
+}

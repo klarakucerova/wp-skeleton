@@ -1,0 +1,31 @@
+{
+  "name": "WPSkeleton",
+  "version": "1.0.0",
+  "description": "Frontend build tools for the WP Skeleton WordPress Theme",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Klara Kucerova",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.24.4",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-changed": "^3.2.0",
+    "gulp-clean-css": "^3.9.4",
+    "gulp-eslint": "^2.0.0",
+    "gulp-imagemin": "^2.0.0",
+    "gulp-jscs": "^3.0.2",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-postcss": "^6.1.0",
+    "gulp-sass": "^2.1.0",
+    "imagemin-pngquant": "^4.0.0",
+    "postcss-scss": "^0.1.5",
+    "stylelint": "^4.3.5"
+  },
+  "dependencies": {
+    "ansi-colors": "^2.0.1"
+  }
+}

@@ -1,0 +1,60 @@
+
+.hamburger {
+    @include rem(height, 30px);
+    @include rem(width, 30px);
+    cursor: pointer;
+    display: block;
+    position: relative;
+    z-index: 9;
+}
+
+.hamburger {
+    span {
+        @include rem(border-radius, 9px);
+        @include rem(height, 2px);
+        background: $color-primary;
+        display: block;
+        left: 0;
+        position: absolute;
+        transform: rotate(0deg);
+        transition: all .25s ease-in-out;
+        width: 100%;
+
+        &:nth-child(1) {
+            top: 0;
+        }
+
+        &:nth-child(2),
+        &:nth-child(3) {
+            @include rem(top, 9px);
+        }
+
+        &:nth-child(4) {
+            @include rem(top, 18px);
+        }
+    }
+
+    &.is-active {
+        span {
+            &:nth-child(1) {
+                @include rem(top, 9px);
+                left: 50%;
+                width: 0%;
+            }
+
+            &:nth-child(2) {
+                transform: rotate(45deg);
+            }
+
+            &:nth-child(3) {
+                transform: rotate(-45deg);
+            }
+
+            &:nth-child(4) {
+                @include rem(top, 10px);
+                left: 50%;
+                width: 0%;
+            }
+        }
+    }
+}

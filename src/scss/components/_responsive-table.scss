@@ -1,0 +1,37 @@
+
+.responsive-table {
+    @media only screen and (max-width: $medium) {
+        table, thead, tbody, th, td, tr { 
+            display: block; 
+        }
+
+        thead tr { 
+            @include accessible-hide();
+        }
+        
+        tr { 
+            border-bottom: 1px solid $border-color;
+
+            &:last-child {
+                border-bottom: 0;
+            }
+        }
+        
+        td {
+            @include rem(min-height, 35px);
+            border: none;
+            position: relative;
+            padding-left: 50%;
+
+            &:before {
+                @include rem(left, 6px);
+                @include rem(padding-right, 10px);
+                @include rem(top, 6px);
+                content: attr(data-title);
+                position: absolute;
+                white-space: nowrap;
+                width: 45%; 
+            }
+        }
+    }
+}

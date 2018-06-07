@@ -1,0 +1,27 @@
+
+.list {
+    list-style: none;
+
+    li {
+        @include rem(margin, 10px 0);
+    }
+}
+
+.list--inline {
+    list-style: none;
+    padding: 0;
+
+    li {
+        margin-right: $vertical-spacing-unit;
+        display: inline-block;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.list--unstyle {
+    list-style: none;
+    padding: 0;
+}

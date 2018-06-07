@@ -1,0 +1,23 @@
+
+@mixin button() {
+    @include rem(padding, 5px 20px);
+    font-size: $font-size-base;
+    background-color: $color-primary;
+    border: 1px solid $white;
+    color: $white;
+    display: block;
+    font-family: $font-header;
+    line-height: 1.4;
+    text-align: center;
+    text-transform: uppercase;
+    transition: color .4s ease-in-out,
+                background-color .4s ease-in-out,
+                border-color .4s ease-in-out;
+
+    &:hover {
+        background-color: transparent;
+        border-color: $color-primary;
+        color: $color-primary;
+        text-decoration: none;
+    }
+}

@@ -1,0 +1,39 @@
+
+// SVG icons in sprite
+[class^="icon-svg-"],
+[class*="icon-svg-"] {
+    height: 1em;
+    transition: all .4s ease;
+    width: 1em;
+
+    &:hover {
+        pointer-events: all;
+    }
+}
+
+.icon-close {
+    @include rem(height, 30px);
+    @include rem(padding, 10px);
+    @include rem(width, 30px);
+    position: absolute;
+    z-index: 20;
+
+    &:before,
+    &:after {
+        @include rem(height, 2px);
+        @include rem(width, 30px);
+        background: $color-primary;
+        content: '';
+        left: 0;
+        position: absolute;
+        top: 50%;
+    }
+
+    &:before {
+        transform: rotate3d(0, 0, 1, 45deg);
+    }
+
+    &:after {
+        transform: rotate3d(0, 0, 1, -45deg);
+    }
+}

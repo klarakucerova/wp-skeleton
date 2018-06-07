@@ -1,0 +1,44 @@
+
+.modal-overlay {
+    background-color: rgba(0, 0, 0, .8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -10;
+}
+
+.modal {
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
+
+    &.is-zoomed {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        @media screen and (min-width: 770px) {
+            @inlude rem(max-height, 800px);
+            @inlude rem(max-width, 800px);
+        }
+
+        .modal-overlay {
+            z-index: 10;
+        }
+    }
+}
+
+.modal-canvas {
+    @include rem(max-width, 500px);
+    @include rem(padding, 30px);
+    background-color: $white;
+    overflow: auto;
+    position: absolute;
+    width: 100%;
+}
