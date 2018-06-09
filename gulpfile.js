@@ -82,7 +82,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('imagemin', function () {
-    return gulp.src(PATHS.images.dir + '**/*')
+    return gulp.src(PATHS.images.dir + '**/*.{jpg,png}')
         .pipe(plugins.changed(PATHS.images.dest))
         .pipe(plugins.imagemin({
             progressive: true,
