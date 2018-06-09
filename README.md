@@ -30,11 +30,19 @@ All theme variable are inside `wp-content/themes/wp-skeleton/src/scss/_config.sc
 
 
 ## Modal markup:
-```<div class="js-modal-trigger">Modal trigger</div>
+`<div class="js-modal-trigger">Modal trigger</div>
 <div class="modal">
     <div class="modal-overlay js-modal-overlay"></div>
     <div class="modal-canvas">
             modal canvas content
         <div class="icon-close js-modal-close"></div>
     </div>
-</div>```
+</div>`
+
+## SVG sprites:
+Add svg icons to: `wp-content/themes/wp-skeleton/src/images/icons/svgsprite/` folder
+
+and run `gulp svg-sprite` to compile them..
+
+### SVG icons usage example
+`<svg class="icon-svg-arrow"><use xlink:href="#icon-arrow" /></svg>`

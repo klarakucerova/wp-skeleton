@@ -2,6 +2,7 @@
 // SVG icons in sprite
 [class^="icon-svg-"],
 [class*="icon-svg-"] {
+    fill: $black;
     height: 1em;
     transition: all .4s ease;
     width: 1em;
@@ -35,4 +36,9 @@
     &:after {
         transform: rotate3d(0, 0, 1, -45deg);
     }
+}
+
+.icon-svg-arrow {
+    stroke: $black;
+    stroke-width: 2;
 }

@@ -7,7 +7,10 @@ var gulp = require('gulp'),
     scssParser = require('postcss-scss'),
     cleanCSS = require('gulp-clean-css'),
     beeper = require('beeper'),
-    color = require('ansi-colors');
+    color = require('ansi-colors'),
+    svgstore = require('gulp-svgstore'),
+    svgmin = require('gulp-svgmin'),
+    path = require('path');
 
 var PATHS = {
     localhost: 'wp-skeleton.local/',
@@ -26,6 +29,10 @@ var PATHS = {
     css: {
         src: 'css/',
         dest: '.'
+    },
+    svgSprite: {
+        src: 'src/images/icons/svgsprite/',
+        dest: 'images/icons/'
     }
 }
 
@@ -110,4 +117,21 @@ gulp.task('minify-css', () => {
     return gulp.src(PATHS.css.src + '*.css')
         .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(gulp.dest(PATHS.css.dest));
+});
+
+gulp.task('svg-sprite', function() {
+    return gulp.src(PATHS.svgSprite.src + '**/*.svg')
+    .pipe(plugins.svgmin(function (file) {
+        var prefix = path.basename(file.relative, path.extname(file.relative));
+        return {
+            plugins: [{
+                cleanupIDs: {
+                    prefix: prefix + '-',
+                    minify: true
+                }
+            }]
+        }
+    }))
+    .pipe(plugins.svgstore())
+    .pipe(gulp.dest(PATHS.svgSprite.dest))
 });
