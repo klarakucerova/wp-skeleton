@@ -84,14 +84,12 @@ gulp.task('sass', function () {
 gulp.task('imagemin', function () {
     return gulp.src(PATHS.images.dir + '**/*')
         .pipe(plugins.changed(PATHS.images.dest))
-        .pipe(plugins.size())
         .pipe(plugins.imagemin({
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()]
         }))
         .pipe(gulp.dest(PATHS.images.dest))
-        .pipe(plugins.size());
 });
 
 // gulp.task('js', function () {
