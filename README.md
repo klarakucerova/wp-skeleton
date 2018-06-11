@@ -1,9 +1,8 @@
-
 # WordPress Skeleton Theme
 
 
 ## About:
-This theme has been developed with Underscores by Automattic as base: [http://underscores.me/](http://underscores.me/)
+This skeleton theme has been developed with [Underscores](http://underscores.me/) by Automattic as base and SASS build tools.
 
 
 ## SASS setup:

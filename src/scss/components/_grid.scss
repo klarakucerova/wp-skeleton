@@ -1,8 +1,5 @@
-//
-// Reusable column layout
-//
 
-.col-set {
+.grid {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -13,17 +10,18 @@
     }
 }
 
+.grid__item {
+    @include rem(min-width, 200px);
+}
+
 @supports (display: grid) {
-    .col-set {
-        @include rem(grid-column-gap, 10px);
+    .grid {
         display: grid;
+        grid-template-columns: repeat(auto-fit minmax(200px, 1fr));
     }
 
-    .col-set-2 {
-        grid-template-columns: minmax(100px, 1fr) 3fr;
-    }
-
-    .col-set-3 {
-        grid-template-columns: 1fr 3fr 1fr;
+    .grid__item {
+        display: block;
+        width: 100%;
     }
 }
