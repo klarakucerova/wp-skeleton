@@ -622,6 +622,39 @@ em {
   font-style: italic;
 }
 
+@media (min-width: 48.125rem) {
+  .col-set {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+}
+
+@supports (display: grid) {
+  .col-set {
+    grid-column-gap: 0.625rem;
+    display: -ms-grid;
+    display: grid;
+  }
+  @media (min-width: 48.125rem) {
+    .col-set {
+      display: -ms-grid;
+      display: grid;
+    }
+  }
+  .col-set-2 {
+    -ms-grid-columns: minmax(100px, 1fr) 3fr;
+    grid-template-columns: minmax(100px, 1fr) 3fr;
+  }
+  .col-set-3 {
+    -ms-grid-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1fr 3fr 1fr;
+  }
+}
+
 .button {
   padding: 0.3125rem 1.25rem;
   font-size: 16px;

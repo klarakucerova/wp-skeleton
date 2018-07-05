@@ -3,13 +3,10 @@
 //
 
 .col-set {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
     @include breakpoint('medium') {
-        flex-direction: row;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
 }
 
@@ -17,6 +14,10 @@
     .col-set {
         @include rem(grid-column-gap, 10px);
         display: grid;
+
+        @include breakpoint('medium') {
+            display: grid;
+        }
     }
 
     .col-set-2 {
