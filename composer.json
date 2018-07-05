@@ -1,0 +1,13 @@
+{
+    "name": "klarakucerova/wp-skeleton",
+    "description": "A starter theme to make building custom themes easier",
+    "type": "wordpress-theme",
+    "license": "GPL v2",
+    "authors": [
+        {
+            "name": "Klara Kucerova",
+            "email": "hello@pixelsandbeyond.io"
+        }
+    ],
+    "require": {}
+}
