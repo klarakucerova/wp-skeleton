@@ -1,24 +1,28 @@
-
-var gulp = require('gulp'),
-    plugins = require('gulp-load-plugins')(),
-    pngquant = require('imagemin-pngquant'),
-    browserSync = require('browser-sync'),
-    stylelint = require("stylelint"),
-    scssParser = require('postcss-scss'),
-    cleanCSS = require('gulp-clean-css'),
-    beeper = require('beeper'),
-    color = require('ansi-colors'),
-    svgstore = require('gulp-svgstore'),
-    svgmin = require('gulp-svgmin'),
-    path = require('path');
-
-var PATHS = {
-    localhost: 'wp-skeleton.local/',
+const { src, dest, watch, series } = require('gulp');
+const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
+const changed = require('gulp-changed');
+const postcss = require('gulp-postcss');
+const imagemin = require('gulp-imagemin');
+const pngquant = require('imagemin-pngquant');
+const browserSync = require('browser-sync').create();
+const stylelint = require("stylelint");
+const scssParser = require('postcss-scss');
+const cleanCSS = require('gulp-clean-css');
+const beeper = require('beeper');
+const color = require('ansi-colors');
+const svgstore = require('gulp-svgstore');
+const svgmin = require('gulp-svgmin');
+const path = require('path');
+const plumber = require('gulp-plumber');
+	
+var paths = {
+    localhost: 'wpskeleton.test',
     images: {
-        dest: 'images/',
-        dir: 'src/images/'
+        src: 'src/images/',
+        dest: 'images/'
     },
-    sass: {
+    scss: {
         src: 'src/scss/',
         dest: 'css/'
     },
@@ -34,23 +38,34 @@ var PATHS = {
         src: 'src/images/icons/svgsprite/',
         dest: 'images/icons/'
     }
-}
+};
 
-var onError = function (error) {
+const onError = function (error) {
     beeper();
     console.log(color.red(error));
     this.emit('end');
 };
 
-gulp.task('default', ['sass', 'sasslint', 'browser-sync', 'minify-css'], function () {
-    gulp.watch(PATHS.sass.src + '**/*.scss', ['sass', 'sasslint']);
-    gulp.watch(PATHS.images.dir + '**/*', ['imagemin']);
-    gulp.watch(PATHS.css.src + '*.css', ['minify-css']);
-    gulp.watch(PATHS.localhost + '*.html').on('change', browserSync.reload);
-    // gulp.watch(PATHS.js.src + '**/*', ['js']);
-});
+function scss() {
+    return src(paths.scss.src + '**/*.scss')
+        .pipe(plumber({
+            errorHandler: onError
+        }))
 
-gulp.task('sasslint', function() {
+        .pipe(changed('css'))
+        .pipe(sass({
+            outputStyle: 'expanded'
+        }))
+        .pipe(autoprefixer({
+            cascade: false
+        }))
+        .pipe(dest(paths.scss.dest))
+        .pipe(browserSync.reload({
+            stream: true
+        }));
+}
+
+function sasslint() {
     var processors = [
         stylelint({
         "rules": {
@@ -58,68 +73,30 @@ gulp.task('sasslint', function() {
         }})
     ];
 
-    gulp.src([PATHS.sass.src + '**/*.scss'])
-        .pipe(plugins.postcss(processors, {syntax: scssParser}));
-});
+    return src([paths.scss.src + '**/*.scss'])
+    .pipe(postcss(processors, {syntax: scssParser}));
+}
 
-gulp.task('sass', function () {
-    return gulp.src(PATHS.sass.src + '**/*.scss')
-        .pipe(plugins.plumber({
-            errorHandler: onError
-        }))
-        .pipe(plugins.changed('css'))
-        .pipe(plugins.sass({
-            outputStyle: 'expanded'
-        }))
-        .pipe(plugins.autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
-        }))
-        .pipe(gulp.dest(PATHS.sass.dest))
-        .pipe(browserSync.reload({
-            stream: true
-        }));
-});
+function minifyimg() {
+    src(paths.images.src + '**/*.{jpg,png}')
+    .pipe(changed(paths.images.dest))
+    .pipe(imagemin({
+        progressive: true,
+        svgoPlugins: [{removeViewBox: false}],
+        use: [pngquant()]
+    }))
+    .pipe(dest(paths.images.dest));
+}
 
-gulp.task('imagemin', function () {
-    return gulp.src(PATHS.images.dir + '**/*.{jpg,png}')
-        .pipe(plugins.changed(PATHS.images.dest))
-        .pipe(plugins.imagemin({
-            progressive: true,
-            svgoPlugins: [{removeViewBox: false}],
-            use: [pngquant()]
-        }))
-        .pipe(gulp.dest(PATHS.images.dest))
-});
+function minifycss() {
+    return src(paths.css.src + '*.css')
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(dest(paths.css.dest));
+}
 
-// gulp.task('js', function () {
-//     return gulp.src(PATHS.js.src + '**/*.js')
-//         .pipe(plugins.sourcemaps.init())
-//         .pipe(plugins.eslint({
-//             configFile: '.eslintrc'
-//         }))
-//         .pipe(plugins.eslint.format())
-//         .pipe(plugins.jscs())
-//         .pipe(plugins.babel())
-//         .pipe(plugins.sourcemaps.write('.'))
-//         .pipe(gulp.dest(PATHS.js.dest));
-// });
-
-gulp.task('browser-sync', function() {
-    browserSync({
-        proxy: PATHS.localhost
-    });
-});
-
-gulp.task('minify-css', () => {
-    return gulp.src(PATHS.css.src + '*.css')
-        .pipe(cleanCSS({compatibility: 'ie8'}))
-        .pipe(gulp.dest(PATHS.css.dest));
-});
-
-gulp.task('svg-sprite', function() {
-    return gulp.src(PATHS.svgSprite.src + '**/*.svg')
-    .pipe(plugins.svgmin(function (file) {
+function svgsprite() {
+    return src(paths.svgSprite.src + '**/*.svg')
+    .pipe(svgmin(function (file) {
         var prefix = path.basename(file.relative, path.extname(file.relative));
         return {
             plugins: [{
@@ -130,6 +107,20 @@ gulp.task('svg-sprite', function() {
             }]
         }
     }))
-    .pipe(plugins.svgstore())
-    .pipe(gulp.dest(PATHS.svgSprite.dest))
-});
+    .pipe(svgstore())
+    .pipe(dest(paths.svgSprite.dest))
+}
+
+exports.svgsprite = svgsprite;
+
+exports.default = function() {
+    browserSync.init({
+        open: false,
+        proxy: paths.localhost,
+        host: paths.localhost
+    });
+    watch(paths.scss.src + '**/*.scss', series(scss, sasslint));
+    watch(paths.images.src + '**/*', minifyimg);
+    watch(paths.css.src + '*.css', minifycss);
+    watch(paths.localhost + '*.scss').on('change', browserSync.reload);
+};
