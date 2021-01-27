@@ -10,6 +10,7 @@
   "license": "ISC",
   "devDependencies": {
     "ansi-colors": "^4.1.1",
+    "axios": "^0.21.1",
     "beeper": "^2.0.0",
     "breakpoint-sass": "^2.7.1",
     "browser-sync": "^2.26.13",
@@ -20,14 +21,15 @@
     "gulp-clean-css": "^4.3.0",
     "gulp-eslint": "^6.0.0",
     "gulp-imagemin": "^7.1.0",
-    "imagemin": "^7.0.1",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^9.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-svgmin": "^3.0.0",
     "gulp-svgstore": "^7.0.1",
+    "imagemin": "^7.0.1",
     "imagemin-pngquant": "^9.0.1",
     "postcss-scss": "^3.0.4",
+    "socket.io": "^2.4.0",
     "stylelint": "^13.7.2"
   },
   "browserslist": [

@@ -473,7 +473,7 @@ h4,
 h5,
 h6 {
   font-weight: normal;
-  margin: 0.5em 0;
+  margin: 10px;
 }
 
 h1 {
@@ -586,7 +586,7 @@ ol {
 }
 
 p {
-  margin: 1.25rem 0;
+  margin: 0.625rem 0;
 }
 
 p:empty {
@@ -793,7 +793,8 @@ em {
   top: 50%;
 }
 
-.u-accessible-hide {
+.u-accessible-hide,
+.screen-reader-text {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -802,4 +803,17 @@ em {
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
 }
