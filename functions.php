@@ -166,13 +166,3 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
     require get_template_directory() . '/inc/jetpack.php';
 }
-
-function wp_skeleton_browsersync() {
-    ?>
-    <script id="__bs_script__">//<![CDATA[
-        document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.26.7'><\/script>".replace("HOST", location.hostname));
-    //]]></script>
-    <?php
-}
-add_action('wp_footer', 'wp_skeleton_browsersync');
-

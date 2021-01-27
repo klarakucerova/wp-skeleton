@@ -1,4 +1,9 @@
 
-.u-accessible-hide {
+.u-accessible-hide,
+.screen-reader-text {
     @include accessible-hide();
+}
+
+.clearfix {
+    @include clearfix();
 }

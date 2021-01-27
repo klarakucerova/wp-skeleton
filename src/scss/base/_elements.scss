@@ -58,7 +58,7 @@ h4,
 h5,
 h6 {
     font-weight: normal;
-    margin: $heading-spacing-unit;
+    margin: $spacing-unit;
 }
 
 h1 {
@@ -170,7 +170,7 @@ ol {
 }
 
 p {
-    @include rem(margin, $vertical-spacing-unit 0);
+    @include rem(margin, $spacing-unit 0);
 
     &:empty {
         margin: 0;
