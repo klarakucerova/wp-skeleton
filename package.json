@@ -14,7 +14,7 @@
     "beeper": "^2.0.0",
     "breakpoint-sass": "^2.7.1",
     "browser-sync": "^2.26.13",
-    "browserslist": "^4.14.6",
+    "browserslist": "^4.16.5",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-changed": "^4.0.2",
