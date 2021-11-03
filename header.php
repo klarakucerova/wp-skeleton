@@ -55,6 +55,7 @@
                 wp_nav_menu( array(
                     'theme_location' => 'menu-1',
                     'menu_id'        => 'primary-menu',
+                    'items_wrap'      => '<ul class="menu--primary list--unstyle">%3$s</ul>'
                 ) );
                 ?>
             </nav><!-- #site-navigation -->

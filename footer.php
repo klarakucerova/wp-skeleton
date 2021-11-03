@@ -13,19 +13,10 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'wp-skeleton' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'wp-skeleton' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'wp-skeleton' ), 'wp-skeleton', '<a href="http://underscores.me/">Klara Kucerova</a>' );
-				?>
+	<footer id="colophon" class="site-footer footer">
+		<div class="site-info footer__inner">
+
+			<div>&copy;<?php echo date("Y"); ?> <?php bloginfo( 'name' ); ?></div>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

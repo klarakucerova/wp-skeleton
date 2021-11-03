@@ -1,30 +1,78 @@
 //
 // Reusable column layout
 //
-
-.col-set {
-    @include breakpoint('medium') {
-        display: flex;
+.colset {    
+    @include rem(margin, 0 -10px);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    
+    @include breakpoint($small) {
+        flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
     }
 }
 
-@supports (display: grid) {
-    .col-set {
-        @include rem(grid-column-gap, 10px);
-        display: grid;
+.colset--nowrap {
+    flex-wrap: nowrap;
+}
 
-        @include breakpoint('medium') {
-            display: grid;
+.col {
+    @include rem(padding, 0 10px);
+    flex: 1;
+    position: relative;
+}
+
+.colset {
+    .col {
+        @include rem(margin-bottom, 20px);
+
+        @include breakpoint($medium) {
+            margin-bottom: 0;
         }
     }
+}
 
-    .col-set-2 {
-        grid-template-columns: minmax(100px, 1fr) 3fr;
+.colset--2 {
+    .col {
+        flex: 1;
+
+        @include breakpoint($medium) {
+            flex: 0 0 calc(100% / 2);
+            max-width: calc(100% / 2);
+        }
     }
+}
 
-    .col-set-3 {
-        grid-template-columns: 1fr 3fr 1fr;
+.colset--3 {
+    .col {
+        flex: 1;
+
+        @include breakpoint($small) {
+            flex: none;
+            max-width: calc(100% / 2);
+            width: 100%;
+        }
+
+        @include breakpoint($medium) {
+            flex: none;
+            max-width: calc(100% / 3);
+            width: 100%;
+        }
+    }
+}
+
+.colset--4 {
+    .col {
+        flex: 1;
+
+        @include breakpoint($small) {
+            flex: 0 0 calc(100% / 2);
+        }
+
+        @include breakpoint($large) {
+            flex: 0 0 calc(100% / 4);
+        }
+
     }
 }

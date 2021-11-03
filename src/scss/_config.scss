@@ -14,28 +14,39 @@ $max-width: 1200px;
 
 // Colour palette
 // ------------------------------------------------
-$color-primary: #000;
-$color-secondary: blue;
-
 $white: #fff;
 $black: #000;
+$grey-dark: #818181;
+$grey-light: #e0e0e0;
 $red: red;
 
+$color-primary: $black;
+$color-secondary: $grey-dark;
+$color-body-text: rgba($grey-dark, .75);
+
+// Borders and Shadows
+// ------------------------------------------------
+$border-color: $grey-light;
+$border-radius: 4px;
+$border: 1px solid $border-color;
+
+$shadow: 0 0 28px 0 rgba(0, 0, 0, .1);
 
 // Main Typographic Heading sizes
 // ------------------------------------------------
 $font-size-base: 16px;
 
-$heading-one: 90px;
-$heading-two: 72px;
-$heading-three: 60px;
-$heading-four: 48px;
-$heading-five: 36px;
-$heading-six: 24px;
+$heading-one: 32px;
+$heading-two: 30px;
+$heading-three: 26px;
+$heading-four: 22px;
+$heading-five: 18px;
+$heading-six: 16px;
 
 $font-weight-light: 300;
-$font-weight-normal: 400;
-$font-weight-bold: 600;
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
 
 $font-base: sans-serif;
 $font-header: serif;
@@ -51,5 +62,3 @@ $breakpoints: (
 $small: map-get($breakpoints, 'small');
 $medium: map-get($breakpoints, 'medium');
 $large: map-get($breakpoints, 'large');
-
-

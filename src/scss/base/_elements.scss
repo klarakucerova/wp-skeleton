@@ -16,6 +16,9 @@ html {
 
 html,
 body {
+    color: $color-body-text;
+    font: $font-weight-regular 16px / 2 $font-base;
+    line-height: 1.6;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -57,8 +60,9 @@ h3,
 h4,
 h5,
 h6 {
+    font-family: $font-header;
     font-weight: normal;
-    margin: $spacing-unit;
+    margin: 0 0 $spacing-unit;
 }
 
 h1 {
