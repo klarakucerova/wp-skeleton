@@ -23,7 +23,7 @@
 <body <?php body_class(); ?>>
 
     <div class="u-accessible-hide">
-        <?php include get_template_directory() . '/images/icons/svgsprite.svg'; ?>
+        <?php echo file_get_contents( get_template_directory() . '/images/icons/svgsprite.svg', FILE_USE_INCLUDE_PATH ); ?>
     </div>
 
     <div id="page" class="site">
