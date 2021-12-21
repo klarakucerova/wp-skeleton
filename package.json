@@ -1,41 +1,62 @@
 {
-  "name": "WPSkeleton",
-  "version": "1.1.0",
-  "description": "Frontend build tools for the WP Skeleton WordPress Theme",
-  "main": "gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Klara Kucerova",
-  "license": "ISC",
-  "devDependencies": {
-    "ansi-colors": "^4.1.1",
-    "axios": "^0.21.1",
-    "beeper": "^2.0.0",
-    "breakpoint-sass": "^2.7.1",
-    "browser-sync": "^2.26.13",
-    "browserslist": "^4.14.6",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
-    "gulp-changed": "^4.0.2",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-eslint": "^6.0.0",
-    "gulp-imagemin": "^7.1.0",
-    "gulp-plumber": "^1.2.1",
-    "gulp-postcss": "^9.0.0",
-    "gulp-sass": "^4.1.0",
-    "gulp-svgmin": "^3.0.0",
-    "gulp-svgstore": "^7.0.1",
-    "imagemin": "^7.0.1",
-    "imagemin-pngquant": "^9.0.1",
-    "postcss-scss": "^3.0.4",
-    "socket.io": "^2.4.0",
-    "stylelint": "^13.7.2"
-  },
-  "browserslist": [
-    "last 2 versions"
-  ],
-  "dependencies": {
-    "ow": "^0.19.0"
-  }
+    "name": "WPSkeleton",
+    "version": "1.1.0",
+    "description": "Frontend build tools for the WP Skeleton WordPress Theme",
+    "main": "gulpfile.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "preinstall": "npx force-resolutions"
+    },
+    "author": "Klara Kucerova",
+    "license": "ISC",
+    "devDependencies": {
+        "ansi-colors": "^4.1.1",
+        "axios": ">=0.21.2",
+        "beepbeep": "^1.3.0",
+        "breakpoint-sass": "^2.7.1",
+        "browser-sync": "^2.27.5",
+        "browserslist": "^4.17.4",
+        "bufferutil": "^4.0.1",
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^7.0.1",
+        "gulp-changed": "^4.0.3",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-eslint": "^6.0.0",
+        "gulp-imagemin": "^7.1.0",
+        "gulp-minify": "^3.1.0",
+        "gulp-plumber": "^1.2.1",
+        "gulp-postcss": "^9.0.1",
+        "gulp-sass": "^5.0.0",
+        "gulp-svgmin": "^4.1.0",
+        "gulp-svgstore": "^8.0.0",
+        "postcss": "^8.3.3",
+        "postcss-scss": "^4.0.1",
+        "socket.io": "^4.3.0",
+        "socket.io-parser": ">=3.3.2",
+        "stylelint": "^13.13.1",
+        "trim-newlines": "^4.0.2",
+        "ts-node": "^9.0.0",
+        "utf-8-validate": "^5.0.2",
+        "nth-check": ">=2.0.1",
+        "tar": ">=4.4.18",
+        "glob-parent": ">=5.1.2",
+        "trim": ">=0.0.3",
+        "lodash": ">=4.17.21",
+        "ua-parser-js": ">=0.7.24",
+        "xmlhttprequest-ssl": ">=1.6.2"
+    },
+        "browserslist": [
+        "last 2 versions"
+    ],
+    "dependencies": {
+        "glob-parent": "^6.0.1",
+        "node-sass": "^6.0.1",
+        "ow": "^0.19.0",
+        "yargs-parser": "^20.2.9"
+    },
+    "resolutions": {
+        "trim-newlines": "^4.0.2",
+        "yargs-parser": "^20.2.9",
+        "glob-parent": "^6.0.1"
+    }
 }

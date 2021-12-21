@@ -1,59 +1,64 @@
 
 .hamburger {
-    @include rem(height, 30px);
-    @include rem(width, 30px);
-    cursor: pointer;
+    @include rem(height, 2px);
+    @include rem(width, 28px);
+    background-color: $color-primary;
     display: block;
     position: relative;
-    z-index: 9;
-}
 
-.hamburger {
-    span {
-        @include rem(border-radius, 9px);
+    &:before,
+    &:after {
         @include rem(height, 2px);
-        background: $color-primary;
+        @include rem(width, 28px);
+        background-color: $color-primary;
+        content: '';
         display: block;
-        left: 0;
         position: absolute;
-        transform: rotate(0deg);
-        transition: all .25s ease-in-out;
-        width: 100%;
-
-        &:nth-child(1) {
-            top: 0;
-        }
-
-        &:nth-child(2),
-        &:nth-child(3) {
-            @include rem(top, 9px);
-        }
-
-        &:nth-child(4) {
-            @include rem(top, 18px);
-        }
+        transform-origin: 25px;
+        transition: top .2s ease .4s,bottom .2s ease .4s,transform .4s ease,background-color .4s ease;
+        right: 0;
     }
 
-    &.is-active {
-        span {
-            &:nth-child(1) {
-                @include rem(top, 9px);
-                left: 50%;
-                width: 0%;
-            }
+    &:before {
+        @include rem(top, -8px);
+    }
 
-            &:nth-child(2) {
-                transform: rotate(45deg);
-            }
+    &:after {
+        @include rem(bottom, -8px);
+    }
 
-            &:nth-child(3) {
-                transform: rotate(-45deg);
-            }
+    &__wrapper {
+        @include rem(height, 22px);
+        @include rem(right, 20px);
+        align-items: center;
+        color: $grey;
+        display: inline-flex;
+        cursor: pointer;
+        position: absolute;
+        text-transform: uppercase;
+        z-index: 10;
+        
+        @include breakpoint(700px) {
+            display: none;
+        }
 
-            &:nth-child(4) {
-                @include rem(top, 10px);
-                left: 50%;
-                width: 0%;
+        
+        &.is-active {
+            .hamburger {
+                background-color: transparent;
+
+                &:before,
+                &:after {
+                    transform: rotate(-45deg);
+                }
+
+                &:before {
+                    transform: rotate(-45deg);
+                }
+            
+                &:after {
+                    transform: rotate(45deg);
+                }    
             }
         }
     }

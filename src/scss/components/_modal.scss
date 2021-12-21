@@ -46,3 +46,72 @@
         }
     }
 }
+
+
+
+.modal {
+    align-items: center;
+    display: flex;
+    bottom: 100%;
+    justify-content: center;
+    left: 0;
+    right: 0;
+    transition: bottom .4s ease;
+    z-index: 10;
+
+    &__overlay {
+        background-color: transparent;
+        transition: background-color .2s ease;
+    }
+
+    &__canvas {
+        @include rem(max-width, 500px);
+        @include rem(padding, 30px);
+        @include rem(top, -800px);
+        background-color: $white;
+        left: 50%;
+        overflow: auto;
+        position: fixed;
+        transform: translate(-50%);
+        transition: top .3s ease;
+        width: 100%;
+        
+        @include breakpoint($small) {
+            @include rem(padding, 40px);
+        }
+        
+        @include breakpoint($medium) {
+            @include rem(padding, 80px);
+            width: 65%;
+        }
+
+        @include breakpoint($large) {
+            width: 45%;
+        }
+    }
+
+    &.is-zoomed {
+        position: absolute;
+
+        .modal__overlay {
+            background-color: rgba(0, 0, 0, .5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -10;
+        }
+
+        .modal__canvas {
+            @include rem(bottom, 30px);
+            @include rem(top, 30px);
+            transition: top .3s ease;
+            
+            @include breakpoint($small) {
+                @include rem(top, 100px);
+                bottom: unset;
+            }
+        }
+    }
+}

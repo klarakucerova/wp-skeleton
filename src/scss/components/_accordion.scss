@@ -1,0 +1,37 @@
+
+
+.accordion {
+    position: relative;
+
+    &__trigger {
+        @include rem(margin, 5px 0);
+        align-items: center;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .4s ease-in-out;
+    }
+    
+    &__content-inner {
+        @include rem(padding, ($spacing-unit / 2 * 3) 0 0);
+    }
+
+    &.is-active {
+        .accordion__trigger {
+            .icon--plus {
+                &:after {
+                    transform: rotate3d(0, 0, 1, 0deg);
+                }
+            }
+        }
+
+        .accordion__content {
+            @include rem(max-height, 2000px);
+        }
+    }
+}

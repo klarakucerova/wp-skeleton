@@ -12,6 +12,12 @@
     }
 }
 
+.icon-svg--arrow {
+    stroke: $black;
+    stroke-width: 2;
+}
+
+/* CSS icons */
 .icon-close {
     @include rem(height, 30px);
     @include rem(padding, 10px);
@@ -36,9 +42,4 @@
     &:after {
         transform: rotate3d(0, 0, 1, -45deg);
     }
-}
-
-.icon-svg-arrow {
-    stroke: $black;
-    stroke-width: 2;
 }
